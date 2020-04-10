@@ -1,0 +1,214 @@
+{% set p_disk_type = disk_type | default('ssd') | lower %}
+{% set p_translog_sync = translog_sync | default('request') | lower %}
+{% set p_refresh_interval = refresh_interval | default("5s") %}
+{
+  "index_patterns": ["{{p_index_prefix}}*"],
+  "settings": {
+      "index.refresh_interval": "{{p_refresh_interval}}",
+      "index.codec": "best_compression",
+      {% if (p_translog_sync != 'request') %}
+      "index.translog.durability": "async",
+      {% endif %}
+      {% if (p_disk_type != 'ssd') %}
+      "index.merge.scheduler.max_thread_count": 1,
+      {% endif %}
+      "index.number_of_replicas": {{ number_of_replicas | default(0) }},
+      "index.number_of_shards": {{ number_of_shards | default(2) }}
+  },
+  "mappings": {
+    "date_detection": false,
+    "dynamic_templates": [
+      {
+        "fields": {
+          "mapping": {
+            "type": "keyword"
+          },
+          "match_mapping_type": "string",
+          "path_match": "fields.*"
+        }
+      },
+      {
+        "docker.container.labels": {
+          "mapping": {
+            "type": "keyword"
+          },
+          "match_mapping_type": "string",
+          "path_match": "docker.container.labels.*"
+        }
+      },
+      {
+        "strings_as_keyword": {
+          "mapping": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          },
+          "match_mapping_type": "string"
+        }
+      }
+    ],
+    "properties": {
+      "@timestamp": {
+        "type": "date"
+      },
+{%- if record_raw_event_size is defined and record_raw_event_size %}
+      "_raw_event_size": {
+        "type": "short"
+      },
+{%- endif %}
+      "source": {
+        "type": "keyword",
+        "ignore_above": 1024
+      },
+      "nginx": {
+        "properties": {
+          "access": {
+            "properties": {
+              "body_sent": {
+                "properties": {
+                  "bytes": {
+                    "type": "long"
+                  }
+                }
+              },
+              "referrer": {
+                "type": "keyword",
+                "ignore_above": 1024
+              },
+              "user_agent": {
+                "properties": {
+                  "device": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "major": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "os_major": {
+                    "ignore_above": 1024,
+                    "type": "keyword"
+                  },
+                  "name": {
+                    "type": "keyword",
+                    "ignore_above": 1024
+                  },
+                  "os": {
+                    "type": "keyword",
+                    "ignore_above": 1024
+                  },
+                  "os_name": {
+                    "type": "keyword",
+                    "ignore_above": 1024
+                  }
+                }
+              },
+              "user_name": {
+                "type": "keyword",
+                "ignore_above": 1024
+              },
+              "method": {
+                "type": "keyword",
+                "ignore_above": 1024
+              },
+              "url": {
+                "type": "keyword",
+                "ignore_above": 1024
+              },
+              "http_version": {
+                "type": "keyword",
+                "ignore_above": 1024
+              },
+              "response_code": {
+                "type": "long"
+              },
+              "geoip": {
+                "properties": {
+                  "country_iso_code": {
+                    "type": "keyword",
+                    "ignore_above": 1024
+                  },
+                  "location": {
+                    "type": "geo_point"
+                  },
+                  "country_name": {
+                    "type": "keyword",
+                    "ignore_above": 1024
+                  },
+                  "city_name": {
+                    "type": "keyword",
+                    "ignore_above": 1024
+                  },
+                  "continent_name": {
+                    "type": "keyword",
+                    "ignore_above": 1024
+                  }
+                }
+              },
+              "remote_ip": {
+                "type": "ip"
+              },
+              "remote_ip_list": {
+                "type": "ip"
+              },
+              "agent": {
+                "type": "text",
+                "norms": false
+              }
+            }
+          }
+        }
+      },
+      "beat": {
+        "properties": {
+          "name": {
+            "type": "keyword",
+            "ignore_above": 1024
+          },
+          "hostname": {
+            "type": "keyword",
+            "ignore_above": 1024
+          },
+          "version": {
+            "ignore_above": 1024,
+            "type": "keyword"
+          }
+        }
+      },
+      "offset": {
+        "type": "long"
+      },
+      "prospector": {
+        "properties": {
+          "type": {
+            "type": "keyword",
+            "ignore_above": 1024
+          }
+        }
+      },
+      "input": {
+        "properties": {
+          "type": {
+            "type": "keyword",
+            "ignore_above": 1024
+          }
+        }
+      },
+      "message": {
+        "type": "text",
+        "norms": false
+      },
+      "fileset": {
+        "properties": {
+          "module": {
+            "type": "keyword",
+            "ignore_above": 1024
+          },
+          "name": {
+            "type": "keyword",
+            "ignore_above": 1024
+          }
+        }
+      }
+    }
+  }
+}

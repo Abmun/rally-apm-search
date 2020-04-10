@@ -1,0 +1,126 @@
+{
+  "version": "7.4.0",
+  "objects": [
+    {
+      "id": "c7ea61a0-3ddb-11ea-946c-d39d15156fcc",
+      "type": "dashboard",
+      "updated_at": "2020-01-23T13:03:34.464Z",
+      "version": "WzIyMDIwLDQ3XQ==",
+      "attributes": {
+        "title": "[Eventdata] JMX Database Connection Pool",
+        "hits": 0,
+        "description": "",
+        "panelsJSON": "[{\"embeddableConfig\":{\"title\":\"BizX Server\"},\"gridData\":{\"h\":14,\"i\":\"049b286a-d995-4553-90b3-4a9c112674bb\",\"w\":14,\"x\":0,\"y\":10},\"panelIndex\":\"049b286a-d995-4553-90b3-4a9c112674bb\",\"title\":\"BizX Server\",\"version\":\"7.4.0\",\"panelRefName\":\"panel_0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":14,\"i\":\"08f2aca1-8e7a-45b8-bd05-b65ec7445c95\",\"w\":34,\"x\":14,\"y\":10},\"panelIndex\":\"08f2aca1-8e7a-45b8-bd05-b65ec7445c95\",\"version\":\"7.4.0\",\"panelRefName\":\"panel_1\"},{\"embeddableConfig\":{\"title\":\"BizX Server Type\"},\"gridData\":{\"h\":10,\"i\":\"664ffad4-3634-4d10-9cea-146c56b093d4\",\"w\":48,\"x\":0,\"y\":0},\"panelIndex\":\"664ffad4-3634-4d10-9cea-146c56b093d4\",\"title\":\"BizX Server Type\",\"version\":\"7.4.0\",\"panelRefName\":\"panel_2\"}]",
+        "optionsJSON": "{\"hidePanelTitles\":false,\"useMargins\":true}",
+        "version": 1,
+        "timeRestore": false,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+        }
+      },
+      "references": [
+        {
+          "name": "panel_0",
+          "type": "visualization",
+          "id": "abae4170-3dcf-11ea-946c-d39d15156fcc"
+        },
+        {
+          "name": "panel_1",
+          "type": "visualization",
+          "id": "a8d03ec0-3cd2-11ea-9f4e-e97f0a5e6ecc"
+        },
+        {
+          "name": "panel_2",
+          "type": "visualization",
+          "id": "44384080-3ddf-11ea-946c-d39d15156fcc"
+        }
+      ],
+      "migrationVersion": {
+        "dashboard": "7.3.0"
+      }
+    },
+    {
+      "id": "abae4170-3dcf-11ea-946c-d39d15156fcc",
+      "type": "visualization",
+      "updated_at": "2020-01-23T11:01:13.607Z",
+      "version": "WzIyMDAxLDQ3XQ==",
+      "attributes": {
+        "title": "[Eventdata] v_JMX_2",
+        "visState": "{\"title\":\"v_JMX_2\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false,\"labels\":{\"show\":false,\"values\":true,\"last_level\":true,\"truncate\":100},\"dimensions\":{\"metric\":{\"accessor\":1,\"format\":{\"id\":\"number\"},\"params\":{},\"aggType\":\"count\"},\"buckets\":[{\"accessor\":0,\"format\":{\"id\":\"terms\",\"params\":{\"id\":\"string\",\"otherBucketLabel\":\"Other\",\"missingBucketLabel\":\"Missing\"}},\"params\":{},\"aggType\":\"terms\"}]}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"host.name\",\"orderBy\":\"_key\",\"order\":\"desc\",\"size\":500,\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Bizx Server\"}}]}",
+        "uiStateJSON": "{}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+        }
+      },
+      "references": [
+        {
+          "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+          "type": "index-pattern",
+          "id": "metricbeat-*"
+        }
+      ],
+      "migrationVersion": {
+        "visualization": "7.3.1"
+      }
+    },
+    {
+      "id": "a8d03ec0-3cd2-11ea-9f4e-e97f0a5e6ecc",
+      "type": "visualization",
+      "updated_at": "2020-01-23T10:06:51.459Z",
+      "version": "WzIxOTkzLDQ3XQ==",
+      "attributes": {
+        "title": "[Eventdata] JMX Database Connection Pool",
+        "visState": "{\"title\":\"JMX Database Connection Pool\",\"type\":\"line\",\"params\":{\"type\":\"line\",\"grid\":{\"categoryLines\":true,\"valueAxis\":\"ValueAxis-1\"},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"filter\":true,\"truncate\":100},\"title\":{}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"DB Pool Connection Count\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"line\",\"mode\":\"normal\",\"data\":{\"label\":\"DB Pool Connection Count\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"showCircles\":true,\"interpolate\":\"linear\"},{\"show\":true,\"mode\":\"normal\",\"type\":\"line\",\"drawLinesBetweenPoints\":true,\"showCircles\":true,\"interpolate\":\"linear\",\"data\":{\"id\":\"3\",\"label\":\"DB Pool Available Count\"},\"valueAxis\":\"ValueAxis-1\"},{\"show\":true,\"mode\":\"normal\",\"type\":\"line\",\"drawLinesBetweenPoints\":true,\"showCircles\":true,\"interpolate\":\"linear\",\"data\":{\"id\":\"4\",\"label\":\"DB Pool Idle Count\"},\"valueAxis\":\"ValueAxis-1\"},{\"show\":true,\"mode\":\"normal\",\"type\":\"line\",\"drawLinesBetweenPoints\":true,\"showCircles\":true,\"interpolate\":\"linear\",\"data\":{\"id\":\"5\",\"label\":\"DB Pool In Use Count\"},\"valueAxis\":\"ValueAxis-1\"}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":true,\"labels\":{},\"thresholdLine\":{\"show\":false,\"value\":10,\"width\":1,\"style\":\"full\",\"color\":\"#34130C\"},\"dimensions\":{\"x\":{\"accessor\":0,\"format\":{\"id\":\"date\",\"params\":{\"pattern\":\"YYYY-MM-DD HH:mm\"}},\"params\":{\"date\":true,\"interval\":\"PT1H\",\"format\":\"YYYY-MM-DD HH:mm\",\"bounds\":{\"min\":\"2020-01-23T09:50:48.751Z\",\"max\":\"2020-01-23T10:05:48.751Z\"}},\"aggType\":\"date_histogram\"},\"y\":[{\"accessor\":1,\"format\":{\"id\":\"number\"},\"params\":{},\"aggType\":\"cardinality\"},{\"accessor\":2,\"format\":{\"id\":\"number\"},\"params\":{},\"aggType\":\"cardinality\"},{\"accessor\":3,\"format\":{\"id\":\"number\"},\"params\":{},\"aggType\":\"cardinality\"},{\"accessor\":4,\"format\":{\"id\":\"number\"},\"params\":{},\"aggType\":\"cardinality\"}]}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"jolokia.jmx_metrics.dbpool.dbPool1.activeCount\",\"customLabel\":\"DB Pool Connection Count\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"timeRange\":{\"from\":\"now-15m\",\"to\":\"now\"},\"useNormalizedEsInterval\":true,\"interval\":\"m\",\"drop_partials\":false,\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"jolokia.jmx_metrics.dbpool.dbPool1.availableCount\",\"customLabel\":\"DB Pool Available Count\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"jolokia.jmx_metrics.dbpool.dbPool1.idleCount\",\"customLabel\":\"DB Pool Idle Count\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"jolokia.jmx_metrics.dbpool.dbPool1.inUseCount\",\"customLabel\":\"DB Pool In Use Count\"}}]}",
+        "uiStateJSON": "{}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[{\"meta\":{\"alias\":null,\"negate\":false,\"disabled\":false,\"type\":\"exists\",\"key\":\"jolokia.jmx_metrics.dbpool.dbPool1.activeCount\",\"value\":\"exists\",\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\"},\"exists\":{\"field\":\"jolokia.jmx_metrics.dbpool.dbPool1.activeCount\"},\"$state\":{\"store\":\"appState\"}}],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+        }
+      },
+      "references": [
+        {
+          "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+          "type": "index-pattern",
+          "id": "metricbeat-*"
+        },
+        {
+          "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+          "type": "index-pattern",
+          "id": "metricbeat-*"
+        }
+      ],
+      "migrationVersion": {
+        "visualization": "7.3.1"
+      }
+    },
+    {
+      "id": "44384080-3ddf-11ea-946c-d39d15156fcc",
+      "type": "visualization",
+      "updated_at": "2020-01-23T13:02:53.738Z",
+      "version": "WzIyMDE4LDQ3XQ==",
+      "attributes": {
+        "title": "[Eventdata] v_jmx_3",
+        "visState": "{\"title\":\"v_jmx_3\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72,\"showLabel\":true,\"metric\":{\"type\":\"vis_dimension\",\"accessor\":1,\"format\":{\"id\":\"string\",\"params\":{}}},\"bucket\":{\"type\":\"vis_dimension\",\"accessor\":0,\"format\":{\"id\":\"terms\",\"params\":{\"id\":\"string\",\"otherBucketLabel\":\"Other\",\"missingBucketLabel\":\"Missing\"}}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"BizX\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"fields.servertype\",\"orderBy\":\"_key\",\"order\":\"desc\",\"size\":500,\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Server Type\"}}]}",
+        "uiStateJSON": "{}",
+        "description": "",
+        "version": 1,
+        "kibanaSavedObjectMeta": {
+          "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+        }
+      },
+      "references": [
+        {
+          "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+          "type": "index-pattern",
+          "id": "metricbeat-*"
+        }
+      ],
+      "migrationVersion": {
+        "visualization": "7.3.1"
+      }
+    }
+  ]
+}

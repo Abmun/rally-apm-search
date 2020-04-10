@@ -1,0 +1,29 @@
+{% import "rally.helpers" as rally with context %}
+
+{% set p_bulk_indexing_clients = (bulk_indexing_clients | default(8)) %}
+{% set p_record_raw_event_size = record_raw_event_size | default(False) | tojson %}
+{% set p_index_prefix = index_prefix | default("elasticlogs") %}
+{% set p_query_index_prefix = query_index_prefix | default(p_index_prefix ~ "_q") %}
+{% set p_query_index_pattern = query_index_pattern | default(p_query_index_prefix ~ "-*") %}
+{% set p_query_index_write_alias = p_query_index_prefix ~ "_write" %}
+{% set p_verbose = verbose | default(False) | tojson %}
+
+{
+  "version": 2,
+  "description": "Track for simulating different aspects of event-based use cases.",
+  "templates": [
+    {
+        "name": "elasticlogs-index-template",
+        "index-pattern": "{{p_index_prefix}}*",
+        "delete-matching-indices": false,
+        "template": "elasticlogs-index-template.json"
+    }
+  ],
+  "#COMMENT": "'operations' just define all possible operations but this is not the actual execution schedule. The execution is defined in the 'challenges' block and it just refers to the defined operations. The intention between this separation is to allow reuse of operations",
+  "operations": [
+    {{ rally.collect(parts="operations/*.json") }}
+  ],
+  "challenges": [
+    {{ rally.collect(parts="challenges/*.json") }}
+  ]
+}

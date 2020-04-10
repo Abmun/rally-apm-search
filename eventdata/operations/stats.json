@@ -1,0 +1,34 @@
+{
+  "name": "fieldstats_elasticlogs_q-*",
+  "operation-type": "fieldstats",
+  "index_pattern": "{{p_query_index_pattern}}"
+},
+{
+  "name": "indicesstats_elasticlogs",
+  "operation-type": "indicesstats",
+  "index_pattern": "elasticlogs"
+},
+{
+  "name": "indicesstats_elasticlogs_q-*",
+  "operation-type": "indicesstats",
+  "index_pattern": "{{p_query_index_pattern}}"
+},
+{
+  "name": "indicesstats_elasticlogs_i-*",
+  "operation-type": "indicesstats",
+  "index_pattern": "elasticlogs_i-*"
+},
+{
+  "name": "indicesstats_elasticlogs_q_write",
+  "operation-type": "indicesstats",
+  "index_pattern": "{{p_query_index_write_alias}}"
+},
+{
+  "name": "indicesstats_elasticlogs_i_write",
+  "operation-type": "indicesstats",
+  "index_pattern": "elasticlogs_i_write"
+},
+{
+  "name": "node_storage",
+  "operation-type": "node_storage"
+}

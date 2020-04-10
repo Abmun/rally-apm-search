@@ -1,0 +1,65 @@
+{% set p_query_time_period = (query_time_period | default(1800)) %}
+
+{
+  "name": "apm-search-queries-sampledata",
+  "description": "This challenge simulates a set of apm search queries against historical data ({{p_query_index_pattern}} indices) without any indexing taking place for a period of {{ p_query_time_period / 60 }} minutes. It assumes one of the challenges creating {{p_query_index_pattern}} indices has been run.",
+  "meta": {
+    "benchmark_type": "querying",
+    "target_kibana_queries_per_minute": 10
+  },
+  "schedule": [
+    {
+      "parallel": {
+        "warmup-time-period": 0,
+        "time-period": {{ p_query_time_period }},
+        "clients": 8,
+        "tasks": [
+          {
+            "operation": "search-services-1h-timestamp",
+            "target-interval": 30
+          },
+            {
+            "operation": "search-bizxcfweb-transactions-pageload-1h-timestamp",
+            "target-interval": 30
+          },
+            {
+            "operation": "search-bizxcfweb-spans-1h-timestamp",
+            "target-interval": 30
+          },
+            {
+            "operation": "search-spandetails-1h-timestamp",
+            "target-interval": 30
+          },
+          {
+            "operation": "search-services-24h-timestamp",
+            "target-interval": 60
+          },
+          {
+            "operation": "search-bizxcfweb-transactions-pageload-24h-timestamp",
+            "target-interval": 60
+          },
+          {
+            "operation": "search-bizxcfweb-spans-24h-timestamp",
+            "target-interval": 60
+          },
+          {
+            "operation": "search-spandetails-24h-timestamp",
+            "target-interval": 60
+          }
+        ]
+      }
+    },
+       {
+  "name": "delete-apm-error",
+  "operation": "delete-apm-error"
+  },
+  {
+  "name": "delete-apm-transaction",
+  "operation": "delete-apm-transaction"
+  },
+  {
+  "name": "delete-apm-span",
+  "operation": "delete-apm-span"
+  }
+  ]
+}

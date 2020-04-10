@@ -1,0 +1,360 @@
+{
+      "name": "search-services-24h-timestamp",
+      "operation-type": "search",
+      "index": "apm-*",
+      "body": {
+        "size": 500,
+        "query": {
+            "bool": {
+                "filter": [
+                    {
+                        "term": {
+                            "processor.event": "transaction"
+                        }
+                    },
+                    {
+                        "range": {
+                            "@timestamp": {
+                                "gte": "2020-02-21T00:00:49.682Z",
+                                "lte": "2020-02-22T00:00:49.682Z"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "aggs": {
+            "types": {
+                "terms": {
+                    "field": "service.name",
+                    "size": 100
+                }
+            }
+        }
+      }
+    },
+{
+      "name": "search-bizxcfweb-transactions-pageload-24h-timestamp",
+      "operation-type": "search",
+      "index": "apm-*",
+      "body": {
+        "size": 500,
+        "query": {
+            "bool": {
+                "filter": [
+                    {
+                        "term": {
+                            "processor.event": "transaction"
+                        }
+                    },
+                    {
+                        "term": {
+                            "transaction.type": "page-load"
+                        }
+                    },
+                    {
+                        "term": {
+                            "service.name": "bizx-cf-web"
+                        }
+                    },
+                    {
+                        "range": {
+                            "@timestamp": {
+                                "gte": "2020-02-21T00:00:49.682Z",
+                                "lte": "2020-02-22T00:00:49.682Z"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "sort": [
+            {
+                "transaction.duration.us": {
+                    "order": "desc"
+                }
+            }
+        ],
+        "aggs": {
+            "types": {
+                "terms": {
+                    "field": "transaction.name",
+                    "size": 100
+                }
+            }
+        }
+      }
+    },
+{
+      "name": "search-bizxcfweb-spans-24h-timestamp",
+      "operation-type": "search",
+      "index": "apm-*",
+      "body": {
+        "size": 500,
+        "query": {
+            "bool": {
+                "filter": [
+                    {
+                        "term": {
+                            "processor.event": "span"
+                        }
+                    },
+                    {
+                        "term": {
+                            "processor.name": "transaction"
+                        }
+                    },
+                    {
+                        "term": {
+                            "service.name": "bizx-cf-web"
+                        }
+                    },
+                    {
+                        "range": {
+                            "@timestamp": {
+                                "gte": "2020-02-21T00:00:49.682Z",
+                                "lte": "2020-02-22T00:00:49.682Z"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "sort": [
+            {
+                "span.duration.us": {
+                    "order": "desc"
+                }
+            }
+        ],
+        "aggs": {
+            "types": {
+                "terms": {
+                    "field": "span.name",
+                    "size": 100
+                }
+            }
+        }
+      }
+    },
+{
+      "name": "search-spandetails-24h-timestamp",
+      "operation-type": "search",
+      "index": "apm-*",
+      "body": {
+        "size": 500,
+        "query": {
+            "bool": {
+                "filter": [
+                    {
+                        "term": {
+                            "processor.event": "span"
+                        }
+                    },
+                    {
+                        "term": {
+                            "span.name": "Parsing the document, executing sync. scripts"
+                        }
+                    },
+                    {
+                        "range": {
+                            "@timestamp": {
+                                "gte": "2020-02-21T00:00:49.682Z",
+                                "lte": "2020-02-22T00:00:49.682Z"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+      }
+    },
+{
+      "name": "search-services-1h-timestamp",
+      "operation-type": "search",
+      "index": "apm-*",
+      "body": {
+        "size": 500,
+        "query": {
+            "bool": {
+                "filter": [
+                    {
+                        "term": {
+                            "processor.event": "transaction"
+                        }
+                    },
+                    {
+                        "range": {
+                            "@timestamp": {
+                                "gte": "2020-03-06T00:00:54.785Z",
+                                "lte": "2020-03-06T01:00:59.978Z"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "aggs": {
+            "types": {
+                "terms": {
+                    "field": "service.name",
+                    "size": 100
+                }
+            }
+        }
+      }
+    },
+{
+      "name": "search-bizxcfweb-transactions-pageload-1h-timestamp",
+      "operation-type": "search",
+      "index": "apm-*",
+      "body": {
+        "size": 500,
+        "query": {
+            "bool": {
+                "filter": [
+                    {
+                        "term": {
+                            "processor.event": "transaction"
+                        }
+                    },
+                    {
+                        "term": {
+                            "transaction.type": "page-load"
+                        }
+                    },
+                    {
+                        "term": {
+                            "service.name": "bizx-cf-web"
+                        }
+                    },
+                    {
+                        "range": {
+                            "@timestamp": {
+                                "gte": "2020-03-06T00:00:54.785Z",
+                                "lte": "2020-03-06T01:00:59.978Z"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "sort": [
+            {
+                "transaction.duration.us": {
+                    "order": "desc"
+                }
+            }
+        ],
+        "aggs": {
+            "types": {
+                "terms": {
+                    "field": "transaction.name",
+                    "size": 100
+                }
+            }
+        }
+      }
+    },
+{
+      "name": "search-bizxcfweb-spans-1h-timestamp",
+      "operation-type": "search",
+      "index": "apm-*",
+      "body": {
+        "size": 500,
+        "query": {
+            "bool": {
+                "filter": [
+                    {
+                        "term": {
+                            "processor.event": "span"
+                        }
+                    },
+                    {
+                        "term": {
+                            "processor.name": "transaction"
+                        }
+                    },
+                    {
+                        "term": {
+                            "service.name": "bizx-cf-web"
+                        }
+                    },
+                    {
+                        "range": {
+                            "@timestamp": {
+                                "gte": "2020-03-06T00:00:54.785Z",
+                                "lte": "2020-03-06T01:00:59.978Z"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "sort": [
+            {
+                "span.duration.us": {
+                    "order": "desc"
+                }
+            }
+        ],
+        "aggs": {
+            "types": {
+                "terms": {
+                    "field": "span.name",
+                    "size": 100
+                }
+            }
+        }
+      }
+    },
+{
+      "name": "search-spandetails-1h-timestamp",
+      "operation-type": "search",
+      "index": "apm-*",
+      "body": {
+        "size": 500,
+        "query": {
+            "bool": {
+                "filter": [
+                    {
+                        "term": {
+                            "processor.event": "span"
+                        }
+                    },
+                    {
+                        "term": {
+                            "span.name": "Parsing the document, executing sync. scripts"
+                        }
+                    },
+                    {
+                        "range": {
+                            "@timestamp": {
+                                "gte": "2020-03-06T00:00:54.785Z",
+                                "lte": "2020-03-06T01:00:59.978Z"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+      }
+    },
+{
+  "name": "delete-apm-error",
+  "operation-type": "delete-index",
+  "index": "apm-error",
+ "only-if-exists": true
+},
+{
+  "name": "delete-apm-transaction",
+  "operation-type": "delete-index",
+  "index": "apm-transaction",
+ "only-if-exists": true
+},
+{
+  "name": "delete-apm-span",
+  "operation-type": "delete-index",
+  "index": "apm-span",
+ "only-if-exists": true
+}
