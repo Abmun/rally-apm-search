@@ -11,7 +11,7 @@ Once Rally has been configured, modify the `rally.ini` file to link to the event
 ```
 [tracks]
 default.url = https://github.com/elastic/rally-tracks
-eventdata.url = https://github.wdf.sap.corp/I870074/apm-rally-perf-eventdata
+eventdata.url = https://github.com/Abmun/rally-apm-search/
 
 ```
 
