@@ -3,7 +3,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>I have come up with a custom track to execute search queries specific to APM data covering two use cases-</p>
+<p>This custom track executes search queries specific to APM data covering two use cases-</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
