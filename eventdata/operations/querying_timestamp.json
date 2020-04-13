@@ -15,8 +15,8 @@
                     {
                         "range": {
                             "@timestamp": {
-                                "gte": "2020-02-21T00:00:49.682Z",
-                                "lte": "2020-02-22T00:00:49.682Z"
+                                "gte": "2018-10-14T00:00:00.983Z",
+                                "lte": "2018-10-15T00:00:00.983Z"
                             }
                         }
                     }
@@ -26,7 +26,7 @@
         "aggs": {
             "types": {
                 "terms": {
-                    "field": "service.name",
+                    "field": "context.service.name",
                     "size": 100
                 }
             }
@@ -34,7 +34,7 @@
       }
     },
 {
-      "name": "search-bizxcfweb-transactions-pageload-24h-timestamp",
+      "name": "search-opbeans-transactions-24h-timestamp",
       "operation-type": "search",
       "index": "apm-*",
       "body": {
@@ -49,19 +49,19 @@
                     },
                     {
                         "term": {
-                            "transaction.type": "page-load"
+                            "transaction.type": "request"
                         }
                     },
                     {
                         "term": {
-                            "service.name": "bizx-cf-web"
+                            "context.service.name": "opbeans-node"
                         }
                     },
                     {
                         "range": {
                             "@timestamp": {
-                                "gte": "2020-02-21T00:00:49.682Z",
-                                "lte": "2020-02-22T00:00:49.682Z"
+                                "gte": "2018-10-14T00:00:00.983Z",
+                                "lte": "2018-10-15T00:00:00.983Z"
                             }
                         }
                     }
@@ -86,7 +86,7 @@
       }
     },
 {
-      "name": "search-bizxcfweb-spans-24h-timestamp",
+      "name": "search-opbeans-spans-24h-timestamp",
       "operation-type": "search",
       "index": "apm-*",
       "body": {
@@ -106,14 +106,14 @@
                     },
                     {
                         "term": {
-                            "service.name": "bizx-cf-web"
+                            "context.service.name": "opbeans-node"
                         }
                     },
                     {
                         "range": {
                             "@timestamp": {
-                                "gte": "2020-02-21T00:00:49.682Z",
-                                "lte": "2020-02-22T00:00:49.682Z"
+                                "gte": "2018-10-14T00:00:00.983Z",
+                                "lte": "2018-10-15T00:00:00.983Z"
                             }
                         }
                     }
@@ -153,14 +153,14 @@
                     },
                     {
                         "term": {
-                            "span.name": "Parsing the document, executing sync. scripts"
+                            "span.name": "SELECT FROM orders"
                         }
                     },
                     {
                         "range": {
                             "@timestamp": {
-                                "gte": "2020-02-21T00:00:49.682Z",
-                                "lte": "2020-02-22T00:00:49.682Z"
+                                "gte": "2018-10-14T00:00:00.983Z",
+                                "lte": "2018-10-15T00:00:00.983Z"
                             }
                         }
                     }
@@ -186,8 +186,8 @@
                     {
                         "range": {
                             "@timestamp": {
-                                "gte": "2020-03-06T00:00:54.785Z",
-                                "lte": "2020-03-06T01:00:59.978Z"
+                                "gte": "2018-10-14T17:00:00.661Z",
+                                "lte": "2018-10-14T18:00:00.661Z"
                             }
                         }
                     }
@@ -197,7 +197,7 @@
         "aggs": {
             "types": {
                 "terms": {
-                    "field": "service.name",
+                    "field": "context.service.name",
                     "size": 100
                 }
             }
@@ -205,7 +205,7 @@
       }
     },
 {
-      "name": "search-bizxcfweb-transactions-pageload-1h-timestamp",
+      "name": "search-opbeans-transactions-1h-timestamp",
       "operation-type": "search",
       "index": "apm-*",
       "body": {
@@ -220,19 +220,19 @@
                     },
                     {
                         "term": {
-                            "transaction.type": "page-load"
+                            "transaction.type": "request"
                         }
                     },
                     {
                         "term": {
-                            "service.name": "bizx-cf-web"
+                            "context.service.name": "opbeans-node"
                         }
                     },
                     {
                         "range": {
                             "@timestamp": {
-                                "gte": "2020-03-06T00:00:54.785Z",
-                                "lte": "2020-03-06T01:00:59.978Z"
+                                "gte": "2018-10-14T17:00:00.661Z",
+                                "lte": "2018-10-14T18:00:00.661Z"
                             }
                         }
                     }
@@ -257,7 +257,7 @@
       }
     },
 {
-      "name": "search-bizxcfweb-spans-1h-timestamp",
+      "name": "search-opbeans-spans-1h-timestamp",
       "operation-type": "search",
       "index": "apm-*",
       "body": {
@@ -277,14 +277,14 @@
                     },
                     {
                         "term": {
-                            "service.name": "bizx-cf-web"
+                            "context.service.name": "opbeans-node"
                         }
                     },
                     {
                         "range": {
                             "@timestamp": {
-                                "gte": "2020-03-06T00:00:54.785Z",
-                                "lte": "2020-03-06T01:00:59.978Z"
+                                "gte": "2018-10-14T17:00:00.661Z",
+                                "lte": "2018-10-14T18:00:00.661Z"
                             }
                         }
                     }
@@ -324,14 +324,14 @@
                     },
                     {
                         "term": {
-                            "span.name": "Parsing the document, executing sync. scripts"
+                            "span.name": "SELECT FROM orders"
                         }
                     },
                     {
                         "range": {
                             "@timestamp": {
-                                "gte": "2020-03-06T00:00:54.785Z",
-                                "lte": "2020-03-06T01:00:59.978Z"
+                                "gte": "2018-10-14T17:00:00.661Z",
+                                "lte": "2018-10-14T18:00:00.661Z"
                             }
                         }
                     }
@@ -339,22 +339,5 @@
             }
         }
       }
-    },
-{
-  "name": "delete-apm-error",
-  "operation-type": "delete-index",
-  "index": "apm-error",
- "only-if-exists": true
-},
-{
-  "name": "delete-apm-transaction",
-  "operation-type": "delete-index",
-  "index": "apm-transaction",
- "only-if-exists": true
-},
-{
-  "name": "delete-apm-span",
-  "operation-type": "delete-index",
-  "index": "apm-span",
- "only-if-exists": true
 }
+ 
