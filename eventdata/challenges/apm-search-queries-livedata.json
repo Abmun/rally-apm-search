@@ -16,35 +16,35 @@
         "clients": 8,
         "tasks": [
           {
+            "operation": "query-transactions-with-time",
+            "target-interval": 30
+          },
+            {
+            "operation": "query-all-spans",
+            "target-interval": 60
+          },
+            {
+            "operation": "query-spans-no-time",
+            "target-interval": 30
+          },
+            {
+            "operation": "query-spans-with-time",
+            "target-interval": 30
+          },
+          {
+            "operation": "query-error-timewindow",
+            "target-interval": 60
+          },
+          {
+            "operation": "search-opbeans-spans-24h",
+            "target-interval": 60
+          },
+          {
+            "operation": "search-opbeans-transactions-1h",
+            "target-interval": 60
+          },
+          {
             "operation": "search-services-1h",
-            "target-interval": 30
-          },
-            {
-            "operation": "search-bizxcfweb-transactions-pageload-1h",
-            "target-interval": 30
-          },
-            {
-            "operation": "search-bizxcfweb-spans-1h",
-            "target-interval": 30
-          },
-            {
-            "operation": "search-spandetails-1h",
-            "target-interval": 30
-          },
-          {
-            "operation": "search-services-24h",
-            "target-interval": 60
-          },
-          {
-            "operation": "search-bizxcfweb-transactions-pageload-24h",
-            "target-interval": 60
-          },
-          {
-            "operation": "search-bizxcfweb-spans-24h",
-            "target-interval": 60
-          },
-          {
-            "operation": "search-spandetails-24h",
             "target-interval": 60
           }
         ]
