@@ -45,5 +45,5 @@
 <!-- /wp:heading -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>esrally --track-path=/root/.rally/benchmarks/tracks/rally-apm-search/eventdata --target-hosts=&lt;ES Node IP>:9200,&lt;ES Node IP>:9200,&lt;ES Node IP>:9200 --pipeline=benchmark-only --client-options="use_ssl:true,verify_certs:false,basic_auth_user:'&lt;username>',timeout:120,basic_auth_password:'&lt;password>'" --challenge=apm-search-queries-sampledata --track-params=./params-file.json --user-tag="dc-env:&lt;Name>-&lt;Env>"</code></pre>
+<pre class="wp-block-code"><code>esrally --track-path=/root/.rally/benchmarks/tracks/rally-apm-search/eventdata --target-hosts=&lt;ES Node IP>:9200,&lt;ES Node IP>:9200,&lt;ES Node IP>:9200 --pipeline=benchmark-only --client-options="use_ssl:true,verify_certs:false,basic_auth_user:'&lt;username>',timeout:120,basic_auth_password:'&lt;password>'" --challenge=apm-search-queries-sampledata --track-params=./params-file.json --user-tag="name-env:&lt;Name>-&lt;Env>"</code></pre>
 <!-- /wp:code -->
